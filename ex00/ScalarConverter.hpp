@@ -6,7 +6,7 @@
 /*   By: kammi <kammi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:59:54 by kammi             #+#    #+#             */
-/*   Updated: 2024/12/11 10:51:33 by kammi            ###   ########.fr       */
+/*   Updated: 2024/12/17 16:37:52 by kammi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@
 # include <iomanip>
 # include <limits>
 # include <cfloat>
-# include <cmath>
 
 # include "ConvertLib.hpp"
 
-# define CHAR_MIN_STR "-128"
-# define CHAR_MAX_STR "127"
-# define INT_MIN_STR "-2147483648"
-# define INT_MAX_STR "2147483647"
+enum TypeInput
+{
+	FLOAT,
+	INTEGER,
+	DOUBLE,
+	CHARACTER,
+	SPECIAL,
+	WRONG
+};
 
 class ScalarConverter
 {
@@ -42,5 +46,4 @@ class ScalarConverter
 
 };
 #endif
-
 

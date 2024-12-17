@@ -6,7 +6,7 @@
 /*   By: kammi <kammi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:01:00 by kammi             #+#    #+#             */
-/*   Updated: 2024/12/07 16:37:55 by kammi            ###   ########.fr       */
+/*   Updated: 2024/12/17 16:36:36 by kammi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,29 @@
 # include <sstream>
 # include <string>
 # include <iomanip>
+# include <limits>
+
 
 class ConvertLib
 {
-	private :
-		ConvertLib();
-		ConvertLib(const ConvertLib &src);
-		~ConvertLib();
+    private :
+        ConvertLib();
+        ConvertLib(const ConvertLib &src);
+        ~ConvertLib();
 
-		ConvertLib &operator=(const ConvertLib &src);
+        ConvertLib &operator=(const ConvertLib &src);
 
-	public:
-		static int		ft_stoi(const std::string &input);
+    public:
+        static void	convertSpecial(const std::string &input);
+        static void	convertChar(const std::string &input);
+        static void	convertInt(const std::string &input);
+        static void	convertFloat(const std::string &input);
+        static void	convertDouble(const std::string &input);
+
+        static int		ft_stoi(const std::string &input);
 		static float	ft_stof(const std::string &input);
 		static double	ft_stod(const std::string &input);
+
 };
 
 #endif
