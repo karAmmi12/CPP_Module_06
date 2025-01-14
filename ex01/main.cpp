@@ -6,38 +6,38 @@
 /*   By: kammi <kammi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:19:06 by kammi             #+#    #+#             */
-/*   Updated: 2024/12/11 13:32:55 by kammi            ###   ########.fr       */
+/*   Updated: 2024/12/26 11:26:24 by kammi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-int main()
+int	main()
 {
 	// Création d'un objet Data
 	Data originalData;
 	originalData.content = "Ceci est un test";
 
 	// Affichage de l'adresse de l'objet original
-	std::cout << "Adresse de l'objet original: " << &originalData << std::endl;
+	std::cout << "Address of the original object: " << &originalData << std::endl;
 
 	// Sérialisation de l'objet Data
 	uintptr_t raw = Serializer::serialize(&originalData);
-	std::cout << "Valeur sérialisée (uintptr_t): " << raw << std::endl;
+	std::cout << "Serialized value (uintptr_t): " << raw << std::endl;
 
 	// Désérialisation de la valeur sérialisée
 	Data* deserializedData = Serializer::deserialize(raw);
-	std::cout << "Adresse de l'objet désérialisé: " << deserializedData << std::endl;
+	std::cout << "Address of the deserialized object: " << deserializedData << std::endl;
 
 	// Vérification que l'adresse de l'objet désérialisé est la même que celle de l'objet original
 	if (deserializedData == &originalData)
 	{
-		std::cout << "Succès: L'adresse de l'objet désérialisé est identique à celle de l'objet original." << std::endl;
-		std::cout << "Contenu de l'objet désérialisé: " << deserializedData->content << std::endl;
+		std::cout << "Success: The address of the deserialized object is the same as the original object." << std::endl;
+		std::cout << "Content of the deserialized object: " << deserializedData->content << std::endl;
 	}
 	else
 	{
-		std::cout << "Erreur: L'adresse de l'objet désérialisé est différente de celle de l'objet original." << std::endl;
+		std::cout << "Error: The address of the deserialized object is different from the original object." << std::endl;
 	}
 
 	return 0;

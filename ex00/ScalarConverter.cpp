@@ -6,7 +6,7 @@
 /*   By: kammi <kammi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:59:50 by kammi             #+#    #+#             */
-/*   Updated: 2024/12/17 16:37:25 by kammi            ###   ########.fr       */
+/*   Updated: 2024/12/26 11:32:34 by kammi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,53 +118,53 @@ static bool	isDouble(const std::string &input)
 	return false;
 }
 
-TypeInput    getType(const std::string &input)
+TypeInput	getType(const std::string &input)
 {
-    if (isSpecial(input))
-        return SPECIAL;
-    else if (isChar(input))
-        return CHARACTER;
-    else if (isInt(input))
-        return INTEGER;
-    else if (isFloat(input))
-        return FLOAT;
-    else if (isDouble(input))
-        return DOUBLE;
-    return WRONG;
-    
+	if (isSpecial(input))
+		return SPECIAL;
+	else if (isChar(input))
+		return CHARACTER;
+	else if (isInt(input))
+		return INTEGER;
+	else if (isFloat(input))
+		return FLOAT;
+	else if (isDouble(input))
+		return DOUBLE;
+	return WRONG;
+		
 }
 
 
-void    ScalarConverter::convert(const std::string &input)
+void	ScalarConverter::convert(const std::string &input)
 {
-    TypeInput   typeInput;
+	TypeInput   typeInput;
 
-    typeInput = getType(input);
+	typeInput = getType(input);
 
-    switch (typeInput)
-    {
-    case SPECIAL:
-        ConvertLib::convertSpecial(input);
-        break;
-    case CHARACTER:
-        ConvertLib::convertChar(input);
-        break;
-    case INTEGER:
-        ConvertLib::convertInt(input);
-        break;
-    case FLOAT:
-        ConvertLib::convertFloat(input);
-        break;
-    case DOUBLE:
-        ConvertLib::convertDouble(input);
-        break;
-    case WRONG:
-        std::cout << "Wrong input" << std::endl;
-        break;
-    default:
-        break;
-        
-    }
+	switch (typeInput)
+	{
+	case SPECIAL:
+		ConvertLib::convertSpecial(input);
+		break;
+	case CHARACTER:
+		ConvertLib::convertChar(input);
+		break;
+	case INTEGER:
+		ConvertLib::convertInt(input);
+		break;
+	case FLOAT:
+		ConvertLib::convertFloat(input);
+		break;
+	case DOUBLE:
+		ConvertLib::convertDouble(input);
+		break;
+	case WRONG:
+		std::cout << "Wrong input" << std::endl;
+		break;
+	default:
+		break;
+	
+	}
 }
 
 
